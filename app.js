@@ -1,9 +1,10 @@
 const express = require('express');
 const morgan = require('morgan');
-const path = require('path')
+const path = require('path');
 const methodOverride = require('method-override');
 const createUserPage = require('./views/createUserPage');
 const updateUserPage = require('./views/updateUserPage');
+const errorPage = require('./views/errorPage');
 const { User, getUser } = require('./db');
 
 const app = express();
@@ -42,7 +43,7 @@ app.get('/users/:id', (req, res, next) => {
 app.post('/users', (req, res, next) => {
   User.create({ firstName: req.body.firstName, lastName: req.body.lastName })
     .then(() => res.redirect('/users'))
-    .catch(next);
+    .catch(validationError => res.send(errorPage(validationError)));
 });
 
 app.delete('/users/:id', (req, res, next) => {
@@ -61,7 +62,7 @@ app.put('/users/:id', (req, res, next) => {
       })
     )
     .then(() => res.redirect('/users'))
-    .catch(next);
+    .catch(validationError => res.send(errorPage(validationError)));
 });
 
 module.exports = app;

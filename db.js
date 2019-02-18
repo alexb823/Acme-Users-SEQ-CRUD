@@ -6,20 +6,28 @@ const User = db.define('user', {
   firstName: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+      isAlpha: true,
+    },
   },
   lastName: {
     type: Sequelize.STRING,
     allowNull: false,
+    validate: {
+      notEmpty: true,
+      isAlpha: true,
+    },
   },
 });
 
 const createUser = (firstName, lastName) => {
-  return User.create({firstName, lastName})
-}
+  return User.create({ firstName, lastName })
+};
 
 const getUser = id => {
-  return User.findOne({where: {id: parseInt(id)}});
-}
+  return User.findOne({ where: { id: parseInt(id) } });
+};
 
 const initDb = () => {
   return db

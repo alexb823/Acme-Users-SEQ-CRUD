@@ -6,7 +6,7 @@ module.exports = users => html`
       user =>
         html`
           <a
-            class="list-group-item list-group-item-action rounded"
+            class="list-group-item list-group-item-action rounded bg-light text-capitalize"
             href="/users/${user.id}"
             >${user.firstName} ${user.lastName}
           </a>

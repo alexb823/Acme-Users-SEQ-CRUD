@@ -16,7 +16,7 @@ module.exports = (user, users) =>
             <label for="inputFirstName" class="sr-only">First Name</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control text-capitalize"
               id="inputFirstName"
               name="firstName"
               value="${user.firstName}"
@@ -26,7 +26,7 @@ module.exports = (user, users) =>
             <label for="inputLastName" class="sr-only">Last Name</label>
             <input
               type="text"
-              class="form-control"
+              class="form-control text-capitalize"
               id="inputLastName"
               name="lastName"
               value="${user.lastName}"
