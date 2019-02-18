@@ -1,6 +1,6 @@
 const html = require('html-template-tag');
 
-module.exports = (content1, content2) => html`
+module.exports = (form, list) => html`
   <!DOCTYPE html>
   <html lang="en">
     <head>
@@ -11,10 +11,10 @@ module.exports = (content1, content2) => html`
       <title>Acme Users SEQ CRUD</title>
     </head>
     <body>
-      <div class="container">
-        <h1 class="my-4">Acme Users SEQ CRUD</h1>
-        $${content1}
-        $${content2}
+      <div class="container mb-3">
+        <h1 class="my-5">Acme Users SEQ CRUD</h1>
+        $${form}
+        $${list}
       </div>
     </body>
   </html>

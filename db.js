@@ -17,10 +17,6 @@ const createUser = (firstName, lastName) => {
   return User.create({firstName, lastName})
 }
 
-const getListOfUsers = () => {
-  return User.findAll();
-}
-
 const getUser = id => {
   return User.findOne({where: {id: parseInt(id)}});
 }
@@ -34,4 +30,4 @@ const initDb = () => {
     .catch(error => console.error(error));
 };
 
-module.exports = { initDb, createUser, User, getUser };
+module.exports = { initDb, User, createUser, getUser };
